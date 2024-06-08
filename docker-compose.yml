@@ -1,0 +1,55 @@
+version: '3.8'
+services:
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:15672"]
+        interval: 30s
+        timeout: 10s
+        retries: 20
+
+  sqlite:
+    image: nouchka/sqlite3
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./db/:/root/db/
+
+  users_service:
+    build: ./users_service
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./users_service:/app
+    depends_on:
+      - rabbitmq
+
+  notifications_service:
+    build: ./notifications_service
+    ports:
+      - "8100:8000"
+    volumes:
+      - ./notifications_service:/app
+    depends_on:
+      - rabbitmq
+
+  messenger_consumer:
+    build: ./notifications_service
+    command: php bin/console messenger:consume async_priority_high -vv async
+    restart: on-failure
+    volumes:
+      - ./notifications_service:/app
+    depends_on:
+      - notifications_service
+      - rabbitmq
+    links: 
+      - rabbitmq
+
+volumes:
+  rabbitmq_data:
+  sqlite_data:
