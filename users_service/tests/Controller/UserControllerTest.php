@@ -15,7 +15,7 @@ class UserControllerTest extends WebTestCase
             'lastName' => 'Doe'
         ]));
 
-        // Assert the UserRegisteredMessage was dispatched
+        // If the client response contains "User created successfully", it means the user was created
         $this->assertStringContainsString('User created successfully', $client->getResponse()->getContent());
     }
 
