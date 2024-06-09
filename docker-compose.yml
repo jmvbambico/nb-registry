@@ -38,17 +38,17 @@ services:
     depends_on:
       - rabbitmq
 
-  messenger_consumer:
-    build: ./notifications_service
-    command: php bin/console messenger:consume async_priority_high -vv async
-    restart: on-failure
-    volumes:
-      - ./notifications_service:/app
-    depends_on:
-      - notifications_service
-      - rabbitmq
-    links: 
-      - rabbitmq
+  # messenger_consumer:
+  #   build: ./notifications_service
+  #   command: php bin/console messenger:consume async_priority_high -vv async
+  #   restart: on-failure
+  #   volumes:
+  #     - ./notifications_service:/app
+  #   depends_on:
+  #     - notifications_service
+  #     - rabbitmq
+  #   links: 
+  #     - rabbitmq
 
 volumes:
   rabbitmq_data:
