@@ -2,6 +2,7 @@ version: '3.8'
 services:
   rabbitmq:
     image: "rabbitmq:3-management"
+    platform: linux/amd64
     ports:
       - "15672:15672"
       - "5672:5672"
@@ -15,6 +16,7 @@ services:
 
   sqlite:
     image: nouchka/sqlite3
+    platform: linux/amd64
     stdin_open: true
     tty: true
     volumes:
@@ -22,6 +24,7 @@ services:
 
   users_service:
     build: ./users_service
+    platform: linux/amd64
     ports:
       - "8000:8000"
     volumes:
@@ -31,6 +34,7 @@ services:
 
   notifications_service:
     build: ./notifications_service
+    platform: linux/amd64
     ports:
       - "8100:8000"
     volumes:
