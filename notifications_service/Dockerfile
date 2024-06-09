@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
   && docker-php-ext-install zip pdo pdo_mysql sockets \
   && pecl install amqp \
   && docker-php-ext-enable amqp
-COPY --from=composer /usr/bin/composer /usr/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /app
 ENV COMPOSER_ALLOW_SUPERUSER=1
 COPY . .
