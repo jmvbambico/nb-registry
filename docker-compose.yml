@@ -2,7 +2,6 @@ version: '3.8'
 services:
   rabbitmq:
     image: "rabbitmq:3-management"
-    platform: linux/amd64
     ports:
       - "15672:15672"
       - "5672:5672"
@@ -16,7 +15,6 @@ services:
 
   sqlite:
     image: nouchka/sqlite3
-    platform: linux/amd64
     stdin_open: true
     tty: true
     volumes:
@@ -24,21 +22,19 @@ services:
 
   users_service:
     build: ./users_service
-    platform: linux/amd64
     ports:
-      - "8000:8000"
+      - "8000:80"
     volumes:
-      - ./users_service:/app
+      - ./users_service:/var/www/html
     depends_on:
       - rabbitmq
 
   notifications_service:
     build: ./notifications_service
-    platform: linux/amd64
     ports:
-      - "8100:8000"
+      - "8100:80"
     volumes:
-      - ./notifications_service:/app
+      - ./notifications_service:/var/www/html
     depends_on:
       - rabbitmq
 
@@ -47,7 +43,7 @@ services:
     command: php bin/console messenger:consume async_priority_high -vv async
     restart: on-failure
     volumes:
-      - ./notifications_service:/app
+      - ./notifications_service:/var/www/html
     depends_on:
       - notifications_service
       - rabbitmq
