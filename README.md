@@ -28,12 +28,10 @@ To get NB Registry up and running, follow these steps:
 
 Unit and Integration tests can be run for both services through the following:
 
-    ```bash
     cd notifications_service
     php bin/phpunit tests
     cd ../users_service
     php bin/phpunit tests
-    ```
 
 - more details can be found on each test at each service' respective `tests` directory
 
