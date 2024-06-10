@@ -23,7 +23,7 @@ services:
   users_service:
     build: ./users_service
     ports:
-      - "8000:80"
+      - "80:80"
     volumes:
       - ./users_service:/var/www/html
     depends_on:
@@ -32,23 +32,23 @@ services:
   notifications_service:
     build: ./notifications_service
     ports:
-      - "8100:80"
+      - "8080:80"
     volumes:
       - ./notifications_service:/var/www/html
     depends_on:
       - rabbitmq
 
-  messenger_consumer:
-    build: ./notifications_service
-    command: php bin/console messenger:consume async_priority_high -vv async
-    restart: on-failure
-    volumes:
-      - ./notifications_service:/var/www/html
-    depends_on:
-      - notifications_service
-      - rabbitmq
-    links: 
-      - rabbitmq
+  # messenger_consumer:
+  #   build: ./notifications_service
+  #   command: php bin/console messenger:consume async_priority_high -vv async
+  #   restart: on-failure
+  #   volumes:
+  #     - ./notifications_service:/var/www/html
+  #   depends_on:
+  #     - notifications_service
+  #     - rabbitmq
+  #   links: 
+  #     - rabbitmq
 
 volumes:
   rabbitmq_data:
