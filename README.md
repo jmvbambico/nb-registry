@@ -34,6 +34,7 @@ Unit and Integration tests can be run for both services through the following:
     cd ../users_service
     php bin/phpunit tests
     ```
+
 - more details can be found on each test at each service' respective `tests` directory
 
 ### Usage
