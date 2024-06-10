@@ -34,6 +34,11 @@ class ComposerStaticInit8116c249f0b4dbcd995d077b53ca826b
             'phpseclib3\\' => 11,
             'phpDocumentor\\Reflection\\' => 25,
         ),
+        'Z' => 
+        array (
+            'Zenstruck\\Messenger\\Test\\' => 25,
+            'Zenstruck\\' => 10,
+        ),
         'W' => 
         array (
             'Webmozart\\Assert\\' => 17,
@@ -184,6 +189,14 @@ class ComposerStaticInit8116c249f0b4dbcd995d077b53ca826b
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+        ),
+        'Zenstruck\\Messenger\\Test\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zenstruck/messenger-test/src',
+        ),
+        'Zenstruck\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zenstruck/assert/src',
         ),
         'Webmozart\\Assert\\' => 
         array (
