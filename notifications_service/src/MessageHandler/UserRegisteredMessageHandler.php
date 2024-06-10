@@ -14,6 +14,6 @@ class UserRegisteredMessageHandler
     public function __invoke(UserRegisteredMessage $message)
     {
         $filesystem = new Filesystem();
-        $filesystem->dumpFile('public/user_registered.txt', $message->getUserId() . PHP_EOL, true);
+        $filesystem->appendToFile('public/user_registered.txt', $message->getUserId() . PHP_EOL);
     }
 }
