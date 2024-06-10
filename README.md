@@ -42,7 +42,7 @@ Unit and Integration tests can be run for both services through the following:
 
 - Users Service: http://localhost
 - Notifications Service: http://localhost:8080
-- RabbitMQ: http://localhost:15672
+- RabbitMQ: http://localhost:15672 (guest:guest)
 
 2. To populate the users, refer to this endpoint specification:
 
@@ -89,4 +89,4 @@ NB Registry/
 - `docker-compose.yml`: Defines the services, networks, and volumes for the application.
 - `users_service/`: Contains the user management microservice, including source code, SQLite database, and Dockerfile.
 - `notifications_service/`: Houses the notifications microservice, including source code, log file for registered users, and Dockerfile.
-- `rabbitmq/`: Contains the Dockerfile for the RabbitMQ service, used for message queuing between services.
+- `rabbitmq/`: Contains the RabbitMQ service, used for message queuing between services.
