@@ -33,7 +33,7 @@ Unit and Integration tests can be run for both services through the following:
     cd ../users_service
     php bin/phpunit tests
 
-- more details can be found on each test at each service' respective `tests` directory
+- more details can be found about the tests at each service' respective `tests` directory
 
 ### Usage
 
@@ -62,6 +62,11 @@ Unit and Integration tests can be run for both services through the following:
 3. The notifications service is set to automatically consume the RabbitQ events queue. You may verify this by visiting: http://localhost:8080/logs
 
 - This actually reads the `users_registered.txt` file located in `/notifications_service/public/` assuming that a message event has already been consumed at least once.
+
+### Live Demo
+
+An online deployment of this showcase is available at: http://167.172.80.150
+Simply replace `localhost` with the IP Address and use the same ports defined above to access the various services.
 
 ### Architecture
 
