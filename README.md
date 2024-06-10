@@ -66,7 +66,25 @@ Unit and Integration tests can be run for both services through the following:
 
 ### Architecture
 
-NB Registry/ ├── docker-compose.yml ├── users_service/ │ ├── src/ │ │ ├── Controller/ │ │ └── Entity/ │ ├── var/ │ │ └── data.db │ └── Dockerfile ├── notifications_service/ │ ├── public/ │ │ └── users_registered.txt │ ├── src/ │ │ ├── Controller/ │ │ └── Service/ │ └── Dockerfile └── rabbitmq/ └── Dockerfile
+```
+NB Registry/
+├── docker-compose.yml
+├── users_service/
+│   ├── src/
+│   │   ├── Controller/
+│   │   └── Entity/
+│   ├── var/
+│   │   └── data.db
+│   └── Dockerfile
+├── notifications_service/
+│   ├── public/
+│   │   └── users_registered.txt
+│   ├── src/
+│   │   ├── Controller/
+│   │   └── Service/
+│   └── Dockerfile
+└── rabbitmq/
+```
 
 - `docker-compose.yml`: Defines the services, networks, and volumes for the application.
 - `users_service/`: Contains the user management microservice, including source code, SQLite database, and Dockerfile.
