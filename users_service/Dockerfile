@@ -1,2 +1,2 @@
 FROM shinsenter/symfony:latest
-RUN phpaddmod sockets amqp
+RUN phpaddmod amqp sockets
